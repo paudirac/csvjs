@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="./csv.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      function envia() {
+        var headers = ['Name', 'Surname', 'Age'];
+	var array = [];
+	array.push({
+	    Name: 'Pau',
+	    Surname: 'Cervera',
+	    Age: 34
+	});
+	array.push({
+	    Name: 'John',
+	    Surname: 'Doe',
+	    Age: 42
+	});
+        var url = "data:application/csv;charset=utf-8," + to_csv(headers, array);
+        var w = window.open(url);
+      };
+    </script>
+  </head>
+  <h1>Prova</h1>
+  <p>Clicka per enviar un csv</p>
+  <button onclick="envia()">Clicka</button>
+</html>
