@@ -32,8 +32,16 @@ exports['csv'] = function (test) {
 	Surname: 'Cervera',
 	Age: 34
     });
+    array.push({
+	Name: 'John',
+	Surname: 'Doe',
+	Age: 42
+    });
     var csv = to_csv(headers, array);
     console.log(csv);
-    test.deepEqual(csv, encode('Name;Surname;Age\nPau;Cervera;34'));
+    test.deepEqual(
+	csv, 
+	encode('Name;Surname;Age\nPau;Cervera;34\nJohn;Doe;42')
+    );
     test.done();
 };
