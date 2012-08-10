@@ -22,26 +22,28 @@ var to_csv = function (headers, array) {
 };
 
 // nodeunit tests
-var assert = require('assert');
-exports = exports || {};
-exports['csv'] = function (test) {
-    var headers = ['Name', 'Surname', 'Age'];
-    var array = [];
-    array.push({
-	Name: 'Pau',
-	Surname: 'Cervera',
-	Age: 34
-    });
-    array.push({
-	Name: 'John',
-	Surname: 'Doe',
-	Age: 42
-    });
-    var csv = to_csv(headers, array);
-    console.log(csv);
-    test.deepEqual(
-	csv, 
-	encode('Name;Surname;Age\nPau;Cervera;34\nJohn;Doe;42')
-    );
-    test.done();
-};
+if (require) {
+    var assert = require('assert');
+    exports = exports || {};
+    exports['csv'] = function (test) {
+	var headers = ['Name', 'Surname', 'Age'];
+	var array = [];
+	array.push({
+	    Name: 'Pau',
+	    Surname: 'Cervera',
+	    Age: 34
+	});
+	array.push({
+	    Name: 'John',
+	    Surname: 'Doe',
+	    Age: 42
+	});
+	var csv = to_csv(headers, array);
+	console.log(csv);
+	test.deepEqual(
+	    csv, 
+	    encode('Name;Surname;Age\nPau;Cervera;34\nJohn;Doe;42')
+	);
+	test.done();
+    };
+}
